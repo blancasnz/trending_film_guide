@@ -14,7 +14,22 @@
         {% endif %}
     </head>
     <body>
-        <div class="container">
+        <header class="site-header">
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="container">
+                    {% if title %}
+                        <a class="navbar-brand" href="/">Popular Films</a>
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link" href="{{ url_for('home') }}">Back to Browsing!</a>
+                        </div>
+                    {% else %}
+                        <a class="navbar-brand" href="#">Popular Films</a>
+                    {% endif %}
+                </div>
+            </nav>
+        </header>
+
+        <div class="container pt-5">
                 {% block content %}
                 {% endblock %}
         </div>
