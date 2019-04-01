@@ -1,25 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from movie_db_api import popular_movies
+
 app = Flask(__name__)
 
-movies = [
-    {
-        'title' : 'Whiplash',
-        'director' : 'Damien Chazelle',
-    },
-    {
-        'title' : 'Lord of the Rings',
-        'director' : 'Peter Jackson'
-    }
-]
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', movies=movies)
+    page = request.args.get('page', 1, type=int)
+    movies, pages = popular_movies(page)
+    return render_template('home.html', movies=movies, pages=pages, current_page=page)
 
-@app.route("/movie")
-def movie():
-    return render_template('movie.html', title='Particular movie')
 
 if __name__ == '__main__':
     app.run(debug=True)
