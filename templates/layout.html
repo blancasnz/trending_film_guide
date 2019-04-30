@@ -15,18 +15,14 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    {% if title %}
-    <title>Popular Movies - {{ title }}</title>
-    {% else %}
-    <title>Popular Movies</title>
-    {% endif %}
+    <title>Trending Films</title>
   </head>
   <body>
     <header class="site-header">
       <nav class="navbar navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="{{url_for('home', page=1)}}"
-            >Popular Films</a
+            >Trending Film Guide</a
           >
         </div>
       </nav>
