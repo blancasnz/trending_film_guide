@@ -1,2 +1,2 @@
-web:gunicorn movies:app --log-file -
+web: gunicorn movies:app --log-file -
 
